@@ -1,7 +1,8 @@
 // FactoredStructure::input::lib.rs
 
+use compute::*;
 use std::fs::*;
-use std::io::{Read, Error, ErrorKind};
+// use std::io::{Read, Error, ErrorKind};
 
 fn open_file_for_read(file_name:&str) 
      ->Result<File, std::io::Error> {
@@ -14,20 +15,23 @@ fn open_file_for_read(file_name:&str)
 #[derive(Debug)]
 pub struct Input {
     name: String,
-    file: Option<File>,
+    // file: Option<File>,
+    compute: Compute
 }
 impl Input {
     pub fn new() -> Input {
         Input {
             name: String::new(),
-            file: Option<File>::None
+            // file: Option::<File>::None,
+            compute: Compute::new()
         }
     }
     pub fn do_input(&mut self, name: &str) {
         self.name = name.to_string();
         let rslt = open_file_for_read(name);
         if let Ok(file) = rslt {
-            self.file = Option::Some(file);
+            // self.file = Option::Some(file);
+            self.compute.do_compute(name, file);
         }
         else {
             print!("\n  can't open file {:?}", name);
