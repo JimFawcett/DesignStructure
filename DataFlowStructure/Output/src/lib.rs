@@ -1,11 +1,13 @@
 /////////////////////////////////////////////////////////////
-// FactoredStructure::Output::lib.rs                       //
-//   - Output displays line count                          //
+// DataFlowStructure::Output::lib.rs                       //
+//   - Sends results to console                            //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
 
 #[derive(Debug)]
-pub struct Output {}
+pub struct Output {
+
+}
 impl Output {
     pub fn new() -> Output {
         Output {}

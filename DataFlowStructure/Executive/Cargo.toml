@@ -8,5 +8,3 @@ edition = "2018"
 
 [dependencies]
 input = { path = "../Input" }
-compute = { path = "../Compute" }
-output = { path = "../Output" }

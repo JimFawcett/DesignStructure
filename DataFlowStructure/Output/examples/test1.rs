@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////
-// FactoredStructure::Output::lib.rs                       //
-//   - Output displays line count                          //
+// DataFlowStructure::Output::test1.rs                     //
+//   - Sends results to console                            //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
 

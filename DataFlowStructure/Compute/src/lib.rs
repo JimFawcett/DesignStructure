@@ -1,10 +1,16 @@
 /////////////////////////////////////////////////////////////
-// FactoredStructure::Compute::lib.rs                      //
-//   - Input attempts to read File to string & count lines //
+// DataFlowStructure::Compute::lib.rs                      //
+//   - Attempts to read opened file to string, count lines //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
-
+/* 
+  Note:
+    - creates instance of Output
+    - attempts to read file to string and count its lines
+    - sends results to Output
+*/
 use std::fs::*;
+use output::{Output};
 use std::io::{Read, Error, ErrorKind};
 
 fn read_file_to_string(f:&mut File) 
@@ -19,18 +25,18 @@ fn read_file_to_string(f:&mut File)
   }
 }
 
-
 #[derive(Debug)]
 pub struct Compute {
   lines: usize,
+  out: Output
 }
 impl Compute {
     pub fn new() -> Compute {
         Compute {
             lines: 0,
+            out: Output::new()
         }
     }
-    /*-- read file, count lines and save count --*/
     pub fn do_compute(&mut self, name: &str, mut file:File) {
         let rslt = read_file_to_string(&mut file);
         if let Ok(contents) = rslt {
@@ -40,12 +46,12 @@ impl Compute {
                     self.lines += 1;
                 }
             }
+            self.out.do_output(name, self.lines);
         }
         else {
-            print!("\n  couldn't open {:?}", name);
+            print!("\n  could not read {:?}", name);
         }
     }
-    /*-- return saved line count --*/
     pub fn lines(&self) -> usize {
         self.lines
     }

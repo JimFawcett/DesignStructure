@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////
-// FactoredStructure::Input::test1.rs                      //
-//   - Input attempts to open named file and return File   //
+// DataFlowStructure::Input::test1.rs                      //
+//   - Attempts to return line count from file             //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
 
@@ -11,12 +11,7 @@ fn main() {
 
     let mut inp = Input::new();
     let name = "./src/lib.rs";
-    let opt = inp.do_input(name);
-    if let Some(_) = opt {
-        print!("\n  opened file {:?}", name);
-    }
-    else {
-        print!("\n  couldn't open file {:?}", name);
-    }
+    let lines = inp.do_input(name);
+    print!("\n  received {} lines from compute", lines);
     print!("\n\n  That's all Folks!\n\n");
 }
