@@ -11,24 +11,14 @@
 */
 use input::{Compute};
 use std::fs::*;
-use std::io::{Read, Error, ErrorKind};
 
 pub trait Output {
     fn new() -> Self;
     fn do_output(&self, name: &str, lines: usize);
 }
 
-fn read_file_to_string(f:&mut File) 
-     -> Result<String, std::io::Error> {
-  let mut contents = String::new();
-  let bytes_rslt = f.read_to_string(&mut contents);
-  if bytes_rslt.is_ok() {
-    Ok(contents)
-  }
-  else {
-      Err(Error::new(ErrorKind::Other, "read error"))
-  }
-}
+mod file_utilities;
+use file_utilities::read_file_to_string;
 
 #[derive(Debug)]
 pub struct ComputeImpl<Out: Output> {

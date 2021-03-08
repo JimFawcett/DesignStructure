@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////
-// DataFlowStructure::Compute::lib.rs                      //
+<pre>/////////////////////////////////////////////////////////////
+// TypeErasureDataFlowStructure::Compute::lib.rs           //
 //   - Attempts to read opened file to string, count lines //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
@@ -9,26 +9,31 @@
     - attempts to read file to string and count its lines
     - sends results to Output
 */
+use input::{Compute};
 use std::fs::*;
-use output::{Output};
+
+pub trait Output {
+    fn new() -&gt; Self;
+    fn do_output(&amp;self, name: &amp;str, lines: usize);
+}
 
 mod file_utilities;
 use file_utilities::read_file_to_string;
 
 #[derive(Debug)]
-pub struct Compute {
+pub struct ComputeImpl&lt;Out: Output&gt; {
   lines: usize,
-  out: Output
+  out: Out
 }
-impl Compute {
-    pub fn new() -> Compute {
-        Compute {
+impl&lt;Out:Output&gt; Compute for ComputeImpl&lt;Out&gt; {
+    fn new() -&gt; ComputeImpl&lt;Out&gt; {
+        ComputeImpl {
             lines: 0,
-            out: Output::new()
+            out: Out::new()
         }
     }
-    pub fn do_compute(&mut self, name: &str, mut file:File) {
-        let rslt = read_file_to_string(&mut file);
+    fn do_compute(&amp;mut self, name: &amp;str, mut file:File) {
+        let rslt = read_file_to_string(&amp;mut file);
         if let Ok(contents) = rslt {
             self.lines = 1;
             for ch in contents.chars() {
@@ -42,7 +47,7 @@ impl Compute {
             print!("\n  could not read {:?}", name);
         }
     }
-    pub fn lines(&self) -> usize {
+    fn lines(&amp;self) -&gt; usize {
         self.lines
     }
 }
@@ -53,3 +58,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>

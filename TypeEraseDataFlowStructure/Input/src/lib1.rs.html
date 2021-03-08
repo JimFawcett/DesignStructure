@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // TypeErasureDataFlowStructure::Input::lib.rs             //
 //   - Attempts to return line count from file             //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -16,24 +16,24 @@ mod file_utilities;
 use file_utilities::open_file_for_read;
 
 pub trait Compute {
-    fn new() -> Self;
-    fn do_compute(&mut self, name: &str, file:File);
-    fn lines(&self) -> usize;
+    fn new() -&gt; Self;
+    fn do_compute(&amp;mut self, name: &amp;str, file:File);
+    fn lines(&amp;self) -&gt; usize;
 }
 
 #[derive(Debug)]
-pub struct Input<T: Compute> {
+pub struct Input&lt;T: Compute&gt; {
     name: String,
     compute: T
 }
-impl<T: Compute> Input<T> {
-    pub fn new() -> Input<T> {
+impl&lt;T: Compute&gt; Input&lt;T&gt; {
+    pub fn new() -&gt; Input&lt;T&gt; {
         Input {
             name: String::new(),
             compute: T::new()
         }
     }
-    pub fn do_input(&mut self, name: &str) -> usize {
+    pub fn do_input(&amp;mut self, name: &amp;str) -&gt; usize {
         let mut lines: usize = 0;
         self.name = name.to_string();
         let rslt = open_file_for_read(name);
@@ -55,3 +55,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>
