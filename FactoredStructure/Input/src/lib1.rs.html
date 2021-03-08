@@ -1,10 +1,18 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // FactoredStructure::Input::lib.rs                        //
 //   - Input attempts to open named file and return File   //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
 /////////////////////////////////////////////////////////////
 
 use std::fs::*;
+
+// fn open_file_for_read(file_name:&amp;str) 
+//      -&gt;Result&lt;File, std::io::Error&gt; {
+//     let rfile = OpenOptions::new()
+//                .read(true)
+//                .open(file_name);
+//     rfile
+// }
 
 mod file_utilities;
 use file_utilities::open_file_for_read;
@@ -14,12 +22,12 @@ pub struct Input {
     name: String,
 }
 impl Input {
-    pub fn new() -> Input {
+    pub fn new() -&gt; Input {
         Input {
             name: String::new(),
         }
     }
-    pub fn do_input(&mut self, name: &str) -> Option<File> {
+    pub fn do_input(&amp;mut self, name: &amp;str) -&gt; Option&lt;File&gt; {
         let rslt = open_file_for_read(name);
         if let Ok(file) = rslt {
             return Some(file);
@@ -38,3 +46,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>

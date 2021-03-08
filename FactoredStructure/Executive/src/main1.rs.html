@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // FactoredStructure::Executive::main.rs                   //
 //   - Executive creates and uses all lower level parts    //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -9,16 +9,16 @@ use input::*;
 use compute::*;
 use output::*;
 
-/*-- module of command line utilities --*/
+//use crate::exec_proc_mod::{parse_cmdln, show_args};
 mod exec_proc_mod;
 use exec_proc_mod::{parse_cmdln, show_cmdln};
 
 /*-- run using command line args --*/
-fn use_args_for_run() -> usize {
+fn use_args_for_run() -&gt; usize {
     let args = parse_cmdln();
     let mut total_lines:usize = 0;
 
-    for name in &args {
+    for name in &amp;args {
         let mut lines = 0;
         let mut inp = Input::new();
         let mut cmp = Compute::new();
@@ -38,7 +38,7 @@ fn use_args_for_run() -> usize {
     total_lines        
 }
 /*-- attempt to open file and count its lines of code --*/
-fn test_ops(name: &str) -> usize {
+fn test_ops(name: &amp;str) -&gt; usize {
     let mut inp = Input::new();
     let mut cmp = Compute::new();
     let out = Output::new();
@@ -56,11 +56,9 @@ fn test_ops(name: &str) -> usize {
     lines
 }
 /*-- run test_ops for each package in this project --*/
-fn run_test_ops() -> usize {
+fn run_test_ops() -&gt; usize {
     let name = "../Executive/src/main.rs";
     let mut lines = 0;
-    lines += test_ops(name);
-    let name = "../Executive/src/exec_proc_mod.rs";
     lines += test_ops(name);
     println!();
 
@@ -100,3 +98,4 @@ fn main() {
 
     print!("\n\n  That's all Folks!\n\n");
 }
+</pre>

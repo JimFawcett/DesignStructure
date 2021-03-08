@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // FactoredStructure::Output::lib.rs                       //
 //   - Output displays line count                          //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -7,10 +7,10 @@
 #[derive(Debug)]
 pub struct Output {}
 impl Output {
-    pub fn new() -> Output {
+    pub fn new() -&gt; Output {
         Output {}
     }
-    pub fn do_output(&self, name: &str, lines: usize) {
+    pub fn do_output(&amp;self, name: &amp;str, lines: usize) {
         print!("\n  {:4} lines in file {:?}", lines, name);
     }
 }
@@ -21,3 +21,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // DataFlowStructure::Input::lib.rs                        //
 //   - Attempts to return line count from file             //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -20,13 +20,13 @@ pub struct Input {
     compute: Compute
 }
 impl Input {
-    pub fn new() -> Input {
+    pub fn new() -&gt; Input {
         Input {
             name: String::new(),
             compute: Compute::new()
         }
     }
-    pub fn do_input(&mut self, name: &str) -> usize {
+    pub fn do_input(&amp;mut self, name: &amp;str) -&gt; usize {
         let mut lines: usize = 0;
         self.name = name.to_string();
         let rslt = open_file_for_read(name);
@@ -48,3 +48,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>

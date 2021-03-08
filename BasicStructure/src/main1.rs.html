@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // basic_structure::main.rs                                //
 //                                                         //
 // Jim Fawcett, https://JimFawcett.github.io, 07 Mar 2021  //
@@ -15,18 +15,18 @@ use std::fs::*;
 use std::io::{Read, Error, ErrorKind};
 
 /*-- part of input processing --*/
-fn open_file_for_read(file_name:&str) 
-     ->Result<File, std::io::Error> {
+fn open_file_for_read(file_name:&amp;str) 
+     -&gt;Result&lt;File, std::io::Error&gt; {
     let rfile = OpenOptions::new()
                .read(true)
                .open(file_name);
     rfile
 }
 /*-- part of compute processing --*/
-fn read_file_to_string(f:&mut File) 
-     -> Result<String, std::io::Error> {
+fn read_file_to_string(f:&amp;mut File) 
+     -&gt; Result&lt;String, std::io::Error&gt; {
   let mut contents = String::new();
-  let bytes_rslt = f.read_to_string(&mut contents);
+  let bytes_rslt = f.read_to_string(&amp;mut contents);
   if bytes_rslt.is_ok() {
     Ok(contents)
   }
@@ -38,11 +38,11 @@ fn read_file_to_string(f:&mut File)
 #[derive(Debug)]
 struct Basic {
     name: String,
-    file: Option<File>,
+    file: Option&lt;File&gt;,
     lines: usize,
 }
 impl Basic {
-    fn new() -> Basic {
+    fn new() -&gt; Basic {
         Basic {
             name: String::new(),
             file: None,
@@ -52,21 +52,21 @@ impl Basic {
     /*-----------------------------------------------------
       Input processing
     */
-    fn parse_cmdln() -> Vec<String> {
+    fn parse_cmdln() -&gt; Vec&lt;String&gt; {
         let cl_iter = std::env::args().into_iter();
-        let args: Vec<String> = cl_iter.skip(1).collect();
+        let args: Vec&lt;String&gt; = cl_iter.skip(1).collect();
         args
     }
-    fn show_cmdln(args: &Vec<String>)  {
+    fn show_cmdln(args: &amp;Vec&lt;String&gt;)  {
         if args.len() == 0 {
             return;
         }
         print!("\n  {}", args[0]);
-        for arg in &args[1..] {
+        for arg in &amp;args[1..] {
             print!(", {}", arg);
         }
     }
-    fn input(&mut self, name: &str) {
+    fn input(&amp;mut self, name: &amp;str) {
         self.name = name.to_string();
         let rslt = open_file_for_read(name);
         if let Ok(file) = rslt {
@@ -79,8 +79,8 @@ impl Basic {
     /*-----------------------------------------------------
       Compute processing
     */
-    fn compute(&mut self) {
-        if let Some(file) = &mut self.file {
+    fn compute(&amp;mut self) {
+        if let Some(file) = &amp;mut self.file {
             let rslt = read_file_to_string(file);
             if let Ok(contents) = rslt {
                 self.lines = 1;
@@ -95,7 +95,7 @@ impl Basic {
     /*-----------------------------------------------------
       Output processing
     */
-    fn output(&self) {
+    fn output(&amp;self) {
         print!("\n  {:4} lines in {:?}", self.lines, self.name);
     }
 }
@@ -110,10 +110,11 @@ fn main() {
     let args = Basic::parse_cmdln();
 
     for name in args {
-        basic.input(&name);
+        basic.input(&amp;name);
         basic.compute();
         basic.output();
     }
 
     println!("\n\n  That's all Folks!\n\n");
 }
+</pre>
