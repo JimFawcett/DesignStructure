@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // PluginDataFlowStructure::Executive::main.rs             //
 //   - Executive creates and uses all lower level parts    //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -19,7 +19,7 @@ fn main() {
 
     let mut lines = 0;
 
-    let mut inp = Input::<ComputeImpl>::new();
+    let mut inp = Input::&lt;ComputeImpl&gt;::new();
     let out = OutputImpl::new();
     let app = inp.get_app();
     app.set_output(Box::new(out));  // use of trait object
@@ -62,3 +62,4 @@ fn main() {
 
     print!("\n\n  That's all Folks!\n\n");
 }
+</pre>

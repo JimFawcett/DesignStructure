@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////
+<pre>/////////////////////////////////////////////////////////////
 // PlugInDataFlowStructure::Compute::lib.rs                //
 //   - Attempts to read opened file to string, count lines //
 // Jim Fawcett, https://JimFawcett.github.io, 04 Mar 2021  //
@@ -20,8 +20,8 @@ use std::fs::*;
     - have generic functions
 */
 pub trait Output {
-    // fn new() -> Self;
-    fn do_output(&self, name: &str, lines: usize);
+    // fn new() -&gt; Self;
+    fn do_output(&amp;self, name: &amp;str, lines: usize);
 }
 
 mod file_utilities;
@@ -29,17 +29,17 @@ use file_utilities::read_file_to_string;
 
 pub struct ComputeImpl {
   lines: usize,
-  out: Option<Box<dyn Output>>  // will hold trait object
+  out: Option&lt;Box&lt;dyn Output&gt;&gt;  // will hold trait object
 }
 impl Compute for ComputeImpl {
-    fn new() -> ComputeImpl {
+    fn new() -&gt; ComputeImpl {
         ComputeImpl {
             lines: 0,
             out: None
         }
     }
-    fn do_compute(&mut self, name: &str, mut file:File) {
-        let rslt = read_file_to_string(&mut file);
+    fn do_compute(&amp;mut self, name: &amp;str, mut file:File) {
+        let rslt = read_file_to_string(&amp;mut file);
         if let Ok(contents) = rslt {
             self.lines = 1;
             for ch in contents.chars() {
@@ -47,7 +47,7 @@ impl Compute for ComputeImpl {
                     self.lines += 1;
                 }
             }
-            if let Some(plug) = &self.out {
+            if let Some(plug) = &amp;self.out {
                 plug.do_output(name, self.lines);
             }
         }
@@ -55,13 +55,13 @@ impl Compute for ComputeImpl {
             print!("\n  could not read {:?}", name);
         }
     }
-    fn lines(&self) -> usize {
+    fn lines(&amp;self) -&gt; usize {
         self.lines
     }
 }
 impl ComputeImpl {
-    pub fn set_output(&mut self, out: Box<dyn Output>) {
-        &self.out.replace(out);
+    pub fn set_output(&amp;mut self, out: Box&lt;dyn Output&gt;) {
+        &amp;self.out.replace(out);
     }
 }
 #[cfg(test)]
@@ -71,3 +71,4 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 }
+</pre>
