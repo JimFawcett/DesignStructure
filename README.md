@@ -4,7 +4,6 @@ Contains short code illustrations of some design structure alternatives.
 https://JimFawcett.github.io/DesignBites.html
 
 Figure 1. - Monolithic
-
 <img src="Design1.jpg#left" width="300" />
 
 Figure 2. - Factored
