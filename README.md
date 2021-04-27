@@ -3,11 +3,11 @@ Contains short code illustrations of some design structure alternatives.
 
 https://JimFawcett.github.io/DesignBites.html
 
-Figure 1. - Monolithic
+Figure 1. - Monolithic - simple structure, internally messy
 
 <img src="Design1.jpg#left" width="300" />
 
-Figure 2. - Factored
+Figure 2. - Factored - simpler internally, more parts
 
 <img src="Design2.jpg#center" width="400" />
 
