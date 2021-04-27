@@ -11,7 +11,7 @@ Figure 2. - Factored - simpler internally, more parts
 
 <img src="Design2.jpg#center" width="400" />
 
-Figure 3. - Data Flow - more complex assembly, can see output before end
+Figure 3. - Data Flow - more complex assembly, can see output before end of processing
 
 <img src="Design4.jpg#right" width="500" />
 
