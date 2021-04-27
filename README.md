@@ -1,5 +1,6 @@
 # DesignStructure
-Contains short code illustrations of some design structure alternatives.
+Contains short code illustrations of some design structure alternatives.  Code functionality is minimal so the details of the infrastracture are obvious.  The code simply counts lines of code in cited files.  So the input simply opens named files, compute counts lines, and output displays the results.  That lets us focus on partitioning,
+ownership, and access.
 
 https://JimFawcett.github.io/DesignBites.html
 
