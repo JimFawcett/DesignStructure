@@ -12,11 +12,11 @@ Figure 1. - Monolithic - simple structure, internally messy<br />
 <br />
 
 Figure 2. - Factored - simpler internally, more parts<br />
-<img src="Design2.jpg#center" width="400" /><br />
+<img src="Design2.jpg" width="400" /><br />
 <br />
 
 Figure 3. - Data Flow - more complex assembly, can see output before end of processing<br />
-<img src="Design4.jpg#right" width="500" /><br />
+<img src="Design4.jpg" width="500" /><br />
 <br />
 
 Figure 4. - Type Erasure - reduces implementation dependencies<br />
