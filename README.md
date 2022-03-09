@@ -12,13 +12,16 @@ Figure 1. - Monolithic - simple structure, internally messy<br />
   
 
 Figure 2. - Factored - simpler internally, more parts<br />
-<img src="Design2.jpg#center" width="400" />
+<img src="Design2.jpg#center" width="400" /><br />
 
   
 Figure 3. - Data Flow - more complex assembly, can see output before end of processing<br />
-<img src="Design4.jpg#right" width="500" />
+<img src="Design4.jpg#right" width="500" /><br />
 
   
 Figure 4. - Type Erasure - reduces implementation dependencies<br />
-<img src="Design5.jpg" width="700" />
+<img src="Design5.jpg" width="700" /><br />
+
+Figure 5. - PlugIn - Output loaded at run-time<br />
+<img src="Design6.jpg" width="700" /><br />
 
