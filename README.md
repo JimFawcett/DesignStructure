@@ -7,7 +7,7 @@ Website documentation for this repository:<br />
   
 Also, see the associated <a href="https://github.com/JimFawcett/DesignBites">DesignBites repository.
 
-Figure 1. - Monolithic - simple structure, internally messy
+Figure 1. - Monolithic - simple structure, internally messy<br />
 <img src="Design1.jpg#left" width="300" />
 
 Figure 2. - Factored - simpler internally, more parts
