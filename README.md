@@ -2,7 +2,10 @@
 Contents of this repository contains short code illustrations of some design structure alternatives.  Code functionality is minimal so the details of the infrastracture are obvious.  The code simply counts lines of code in cited files.  So the input simply opens named files, compute counts lines, and output displays the results.  That lets us focus on partitioning,
 ownership, and access.
 
-https://JimFawcett.github.io/DesignBites.html
+Website documentation for this repository:<br />
+  https://JimFawcett.github.io/DesignBites.html
+  
+Also, see <a href="https://github.com/JimFawcett/DesignBites">DesignBites repository.
 
 Figure 1. - Monolithic - simple structure, internally messy
 
