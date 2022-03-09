@@ -5,7 +5,7 @@ ownership, and access.
 Website documentation for this repository:<br />
   https://JimFawcett.github.io/DesignBites.html
   
-Also, see <a href="https://github.com/JimFawcett/DesignBites">DesignBites repository.
+Also, see the associated <a href="https://github.com/JimFawcett/DesignBites">DesignBites repository.
 
 Figure 1. - Monolithic - simple structure, internally messy
 
